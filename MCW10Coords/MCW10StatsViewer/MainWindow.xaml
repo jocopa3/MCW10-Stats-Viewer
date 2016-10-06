@@ -1,0 +1,103 @@
+﻿<Controls:MetroWindow x:Class="MCW10StatsViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:MCW10StatsViewer"
+        mc:Ignorable="d"
+        Title="MCW10 Live Stats" Height="400" Width="300"
+        
+        WindowTransitionsEnabled="True"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" MinHeight="400" MinWidth="300" GlowBrush="Gray">
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button Content="About" Click="ShowAboutWindow"/>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+
+    <Grid>
+        <TreeView x:Name="StatsView" Margin="10,10,10.143,51.286" PreviewMouseMove="TreeViewPreviewMouseMove">
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="{x:Type TreeViewItem}">
+                    <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}"/>
+                    
+                </Style>
+            </TreeView.ItemContainerStyle>
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type local:CompoundItem}" ItemsSource="{Binding Items}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" />
+                        <TextBlock Text=": " />
+                        <TextBlock Text="{Binding Value}" />
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+                <DataTemplate DataType="{x:Type local:TreeItem}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" />
+                        <TextBlock Text=": " />
+                        <TextBlock Text="{Binding Value}" />
+                    </StackPanel>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type local:StringItem}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" />
+                        <TextBlock Text=": " />
+                        <TextBlock Text="{Binding Value}" />
+                    </StackPanel>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type local:TimeItem}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" />
+                        <TextBlock Text=": " />
+                        <TextBlock Text="{Binding Value}" />
+                        <TextBlock Text=" (" />
+                        <TextBlock Text="{Binding Time}" />
+                        <TextBlock Text=")" />
+                    </StackPanel>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type local:ColorItem}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" />
+                        <TextBlock Text=": " />
+                        <Rectangle Width="12" Height="12">
+                            <Rectangle.Fill>
+                                <SolidColorBrush Color="{Binding color}"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <TextBlock Text=" " />
+                        <TextBlock Text="{Binding Value}" />
+                    </StackPanel>
+                </DataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+
+        <TextBlock x:Name="InfoLabel" TextWrapping="WrapWithOverflow" Margin="10,0,10.143,10.286" Background="White" Height="36" VerticalAlignment="Bottom">
+            Info:
+        </TextBlock>
+
+    </Grid>
+    <!-->
+    
+    <Grid>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,93,-262.571,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="524"/>
+        <Label x:Name="label" Content="Player Stats:" Margin="10,91,10.429,0" VerticalAlignment="Top" Height="25" Background="White" Foreground="Gray"/>
+        <Label x:Name="labelXYZ" Content="XYZ: " Margin="10,114,9.429,0" VerticalAlignment="Top" Height="25" Background="White" Foreground="Gray"/>
+        <Label x:Name="labelRotation" Content="Yaw/Pitch: " Margin="10,239,9.429,0" VerticalAlignment="Top" Height="25" Background="White" Foreground="Gray"/>
+        <Label x:Name="labelCount" Content="Count:" Margin="10,347,11.429,0" VerticalAlignment="Top" Height="25" Background="White" Foreground="Gray"/>
+        <Label x:Name="labelDamage" Content="Damage:" Margin="10,322,10.429,0" VerticalAlignment="Top" Height="25" Background="White" Foreground="Gray"/>
+        <Label x:Name="label_Copy" Content="Item In Hand:" Margin="10,272,10.429,0" VerticalAlignment="Top" Height="25" Background="White" Foreground="Gray"/>
+
+        <Label x:Name="labelId" Content="Id:" Margin="10,297,10.429,0" VerticalAlignment="Top" Height="25" Background="White" Foreground="Gray"/>
+        <Label x:Name="labelBlockPos" Content="Block: " Margin="10,139,9.429,0" VerticalAlignment="Top" Height="25" Background="White" Foreground="Gray"/>
+        <Label x:Name="labelChunkPos" Content="Chunk:" Margin="10,164,9.429,0" VerticalAlignment="Top" Height="25" Background="White" Foreground="Gray"/>
+        <Label x:Name="labelLookingAt" Content="Looking At:" Margin="10,189,9.429,0" VerticalAlignment="Top" Height="25" Background="White" Foreground="Gray"/>
+        <Label x:Name="labelSkyBlockLight" Content="Sky/Block Light:" Margin="10,214,10.429,0" VerticalAlignment="Top" Height="25" Background="White" Foreground="Gray"/>
+        <Label x:Name="labelRendering" Content="Rendering Stats:" Margin="11,10,8.429,0" VerticalAlignment="Top" Height="25" Background="White" Foreground="Gray"/>
+        <Label x:Name="labelFPS" Content="FPS: " Margin="10,35,9.429,0" VerticalAlignment="Top" Height="25" Background="White" Foreground="Gray"/>
+        <Label x:Name="labelEntities" Content="Visible Entities: " Margin="10,60,10.429,0" VerticalAlignment="Top" Height="25" Background="White" Foreground="Gray"/>
+    </Grid>
+    <!-->
+
+</Controls:MetroWindow>

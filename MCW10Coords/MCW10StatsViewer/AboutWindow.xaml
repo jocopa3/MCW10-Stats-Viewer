@@ -1,0 +1,18 @@
+﻿<Controls:MetroWindow x:Class="MCW10StatsViewer.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:MCW10StatsViewer"
+        mc:Ignorable="d"
+        Title="About" Height="103.523" Width="221.809"
+        
+        WindowTransitionsEnabled="True"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Topmost="True" GlowBrush="Gray">
+    <Grid>
+        <Label x:Name="label" Content="Made By: Jocopa3" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="30"/>
+        <Label x:Name="label_Copy" Content="For Minecraft Win10 Version: 0.15.10" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Height="30" Grid.ColumnSpan="2"/>
+
+    </Grid>
+</Controls:MetroWindow>
